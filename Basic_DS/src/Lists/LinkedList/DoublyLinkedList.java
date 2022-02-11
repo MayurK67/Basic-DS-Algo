@@ -165,7 +165,7 @@ public class DoublyLinkedList<T> implements ILinkedList<T> {
             System.out.println("List is Empty...!!");
         } else {
             int i = 1;
-           // Node<T> trav = head;
+            // Node<T> trav = head;
             System.out.print("Head->" + head.data + ", ");
             while (i < getNodesCount()) {
                 System.out.print(trav.next.data + ", ");
@@ -176,14 +176,14 @@ public class DoublyLinkedList<T> implements ILinkedList<T> {
         System.out.println();
 
         System.out.println("List in Reverse direction is: ");
-        
-        int i2=1;
+
+        int i2 = 1;
         while (i2 < getNodesCount()) {
             System.out.print(trav.data + ", ");
             trav = trav.prev;
             i2++;
         }
-        System.out.print( head.data+" <<-Head"  );
+        System.out.print(head.data + " <<-Head");
         System.out.println();
 
     }
@@ -196,8 +196,8 @@ public class DoublyLinkedList<T> implements ILinkedList<T> {
             t1.next = null;
             while (t2 != null) {
                 Node<T> t3 = t2.next;// store t2.next temporarily in t3
-                t2.next = t1;   // change next of t2 to t1  ...earlier  t2 is ahead of t1.
-                t1.prev = t2;   //change prev of t1 to t2;
+                t2.next = t1; // change next of t2 to t1 ...earlier t2 is ahead of t1.
+                t1.prev = t2; // change prev of t1 to t2;
                 t1 = t2;
                 t2 = t3;
 
@@ -206,25 +206,25 @@ public class DoublyLinkedList<T> implements ILinkedList<T> {
             t1.prev = null;
         }
     }
+
     @Override
     public boolean searchAndDelete(T data) {
-        
-        if(!isListEmpty()){
+
+        if (!isListEmpty()) {
             Node<T> trav = head;
-            if(trav.data.equals(data))
-                {
-                    head = trav.next;
-                    head.prev = null;
-                    nodesCount--;
-                    return true;
-                }
-            while(trav.next!=null){
-                if(trav.next.data.equals(data) ){
+            if (trav.data.equals(data)) {
+                head = trav.next;
+                head.prev = null;
+                nodesCount--;
+                return true;
+            }
+            while (trav.next != null) {
+                if (trav.next.data.equals(data)) {
                     break;
                 }
                 trav = trav.next;
             }
-            if(trav.next==null && trav.data!=data)
+            if (trav.next == null && trav.data != data)
                 return false;
             trav.next = trav.next.next;
             trav.next.prev = trav;
@@ -234,6 +234,5 @@ public class DoublyLinkedList<T> implements ILinkedList<T> {
 
         return false;
     }
-
 
 }

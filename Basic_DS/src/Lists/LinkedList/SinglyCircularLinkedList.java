@@ -27,7 +27,7 @@ public class SinglyCircularLinkedList<T> implements ILinkedList<T> {
 
     @Override
     public boolean isListEmpty() {
-        return (head==null);
+        return (head == null);
     }
 
     public int getNodesCount() {
@@ -63,12 +63,11 @@ public class SinglyCircularLinkedList<T> implements ILinkedList<T> {
             newNode.next = head;
             nodesCount++;
         } else {
-           Node<T>  trav = head;
+            Node<T> trav = head;
 
-
-           while (trav.next!=head) {
-               trav = trav.next;
-           }
+            while (trav.next != head) {
+                trav = trav.next;
+            }
             newNode.next = head;
             head = newNode;
             trav.next = head;
@@ -118,11 +117,11 @@ public class SinglyCircularLinkedList<T> implements ILinkedList<T> {
 
     @Override
     public void deleteElementAtFirst() {
-        if (isListEmpty()) { 
+        if (isListEmpty()) {
             System.out.println("List is Empty...!!");
         } else {
             Node<T> trav = head;
-            while (trav.next!=head) {
+            while (trav.next != head) {
                 trav = trav.next;
             }
             head = head.next;
@@ -188,7 +187,7 @@ public class SinglyCircularLinkedList<T> implements ILinkedList<T> {
             Node<T> t1 = head;
             Node<T> t4 = head;
             Node<T> t2 = t1.next;
-           
+
             while (t2 != head) {
                 Node<T> t3 = t2.next;
                 t2.next = t1;

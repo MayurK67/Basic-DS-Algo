@@ -184,22 +184,21 @@ public class SinglyLinkedList<T> implements ILinkedList<T> {
     }
 
     public boolean searchAndDelete(T data) {
-        
-        if(!isListEmpty()){
+
+        if (!isListEmpty()) {
             Node<T> trav = head;
-            if(trav.data.equals(data))
-                {
-                    head = trav.next;
-                    nodesCount--;
-                    return true;
-                }
-            while(trav.next!=null){
-                if(trav.next.data.equals(data) ){
+            if (trav.data.equals(data)) {
+                head = trav.next;
+                nodesCount--;
+                return true;
+            }
+            while (trav.next != null) {
+                if (trav.next.data.equals(data)) {
                     break;
                 }
                 trav = trav.next;
             }
-            if(trav.next==null && trav.data!=data)
+            if (trav.next == null && trav.data != data)
                 return false;
             trav.next = trav.next.next;
             nodesCount--;
@@ -208,6 +207,5 @@ public class SinglyLinkedList<T> implements ILinkedList<T> {
 
         return false;
     }
-
 
 }

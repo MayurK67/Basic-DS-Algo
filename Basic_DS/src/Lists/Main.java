@@ -60,7 +60,7 @@ public class Main {
                 case 9:
                     System.out.println("Enter value to be Searched..:");
                     int data = sc.nextInt();
-                   // if (sL1.searchAndDelete(data))
+                    // if (sL1.searchAndDelete(data))
                     if (DL1.searchAndDelete(data))
                         System.out.println("Values deleted...!!");
                     else
