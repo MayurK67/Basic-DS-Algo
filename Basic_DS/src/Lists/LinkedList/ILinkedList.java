@@ -10,4 +10,5 @@ public interface ILinkedList<T> {
     void deleteElement(int pos);
     void displayList();
     void reverseList();
+    boolean searchAndDelete(T data);
 }
