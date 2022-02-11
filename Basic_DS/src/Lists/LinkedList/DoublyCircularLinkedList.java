@@ -45,7 +45,7 @@ public class DoublyCircularLinkedList<T> implements ILinkedList<T> {
             head.prev = newNode;
             nodesCount++;
         } else {
-            Node<T> trav = head.prev;
+            Node<T> trav = head.prev; //No need to traverse list 
             trav.next = newNode;
             newNode.prev = trav;
             newNode.next = head;
@@ -66,7 +66,7 @@ public class DoublyCircularLinkedList<T> implements ILinkedList<T> {
             nodesCount++;
         } else {
             newNode.next = head;
-            Node<T> trav = head.prev;
+            Node<T> trav = head.prev;// first save the head.prev node and then change the head.prev 
             head.prev = newNode;
             trav.next = newNode;
             newNode.prev = trav;
@@ -92,8 +92,8 @@ public class DoublyCircularLinkedList<T> implements ILinkedList<T> {
                 i++;
             }
             newNode.next = trav.next;
-            trav.next.prev = newNode;
-            newNode.prev = trav;
+            trav.next.prev = newNode;// change the prev of node next to deleted node 
+            newNode.prev = trav; 
             trav.next = newNode;
             nodesCount++;
         }
@@ -106,7 +106,8 @@ public class DoublyCircularLinkedList<T> implements ILinkedList<T> {
             System.out.println("List is Empty...!!");
         } else {
             Node<T> trav = head.prev;
-            trav.next = null;
+            trav.prev.next = head;
+            head.prev = trav.prev;
             nodesCount--;
 
         }
