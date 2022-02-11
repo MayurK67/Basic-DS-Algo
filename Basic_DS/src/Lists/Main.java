@@ -2,6 +2,7 @@ package Lists;
 
 import java.util.Scanner;
 
+import Lists.LinkedList.DoublyCircularLinkedList;
 import Lists.LinkedList.DoublyLinkedList;
 import Lists.LinkedList.SinglyCircularLinkedList;
 import Lists.LinkedList.SinglyLinkedList;
@@ -13,10 +14,12 @@ public class Main {
         System.out.println("Linked list created..!!");
         // SinglyLinkedList<Integer> sL1 = new SinglyLinkedList<>();
         // SinglyCircularLinkedList<Integer> sL1 = new SinglyCircularLinkedList<>();
-        DoublyLinkedList<Integer> DL1 = new DoublyLinkedList<>();
+        // DoublyLinkedList<Integer> DL1 = new DoublyLinkedList<>();
+        DoublyCircularLinkedList<Integer> DL1 = new DoublyCircularLinkedList<>();
         boolean flag = true;
         while (flag) {
             System.out.println("Enter Your Choice: "
+
                     + " \n2.Add Element to signly linked List"
                     + "\n3.Add element at Head\n4.Add Element at End\n5.Delete Element\n6."
                     + "Display List\n7.Check Size of list\n8.Reverse List\n9.Search and Delete element in List\n0.Exit");
