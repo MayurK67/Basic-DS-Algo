@@ -19,7 +19,6 @@ public class Main {
         boolean flag = true;
         while (flag) {
             System.out.println("Enter Your Choice: "
-
                     + " \n2.Add Element to signly linked List"
                     + "\n3.Add element at Head\n4.Add Element at End\n5.Delete Element\n6."
                     + "Display List\n7.Check Size of list\n8.Reverse List\n9.Search and Delete element in List\n0.Exit");
@@ -54,7 +53,6 @@ public class Main {
                 case 7:
                     // System.out.println("Size of Linked list is: " + sL1.getNodesCount());
                     System.out.println("Size of Linked list is:  " + DL1.getNodesCount());
-
                     break;
                 case 8:
                     // sL1.reverseList();
@@ -74,7 +72,6 @@ public class Main {
                     break;
             }
             // sc.nextLine();
-
         }
         sc.close();
 

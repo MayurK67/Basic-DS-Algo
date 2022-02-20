@@ -5,7 +5,6 @@ public class Selection<T extends Comparable<T>> implements ISort<T> {
     @Override
     public T[] sort(T[] arr) {
         int itr = 0, comp = 0;
-        ;
         for (int i = 0; i < arr.length - 1; i++) {
             itr++;
             for (int pos = i + 1; pos < arr.length; pos++) {
