@@ -249,7 +249,7 @@ public class BST<T extends Comparable<T>> {
                 System.out.println(trav.data);
 
                 if (trav.right != null) {
-                    stack.push(trav.right); // pushed right first so that we ca pop it after left is poped
+                    stack.push(trav.right); // pushed right first so that we can pop it after left is popped
                 }
                 if (trav.left != null) {
                     stack.push(trav.left);
