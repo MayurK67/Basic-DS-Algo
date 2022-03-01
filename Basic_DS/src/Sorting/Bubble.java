@@ -10,11 +10,10 @@ public class Bubble<T extends Comparable<T>> implements ISort<T> {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 comp++;
                 int check = arr[j].compareTo(arr[j + 1]);
-                if (check > 0) {
+                if (check > 0) { // if jth elem is greater than j+1 th then swap...so all greater elems will accumulate on right side
                     swap(arr, j, j + 1);
                 }
             }
-
         }
 
         System.out.println("Iterations: " + itr + ", Comparisions: " + comp);
@@ -34,12 +33,12 @@ public class Bubble<T extends Comparable<T>> implements ISort<T> {
         int comp = 0;
         for (int i = 0; i < arr.length - 1 && flag; i++) {
             itr++;
-            flag = false;
+            flag = false; //if in any iteration when inner loop will not swap anything then next outer loop will discontinue
             for (int j = 0; j < arr.length - i - 1; j++) {
                 comp++;
                 int check = arr[j].compareTo(arr[j + 1]);
                 if (check > 0) {
-                    flag = true;
+                    flag = true;  // if array is already sorted then control will not reach here
                     swap(arr, j, j + 1);
                 }
             }
@@ -51,3 +50,6 @@ public class Bubble<T extends Comparable<T>> implements ISort<T> {
     }
 
 }
+
+
+
