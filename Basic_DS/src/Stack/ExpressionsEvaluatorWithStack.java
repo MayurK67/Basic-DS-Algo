@@ -30,7 +30,7 @@ public class ExpressionsEvaluatorWithStack {
             if (isOperand(cur_ele)) {
 
                 if (cur_ele == ' ' || i == (infix.length() - 1)) {
-                    // num.append(cur_ele);
+
                     if (i == (infix.length() - 1))
                         num.append(cur_ele);
                     if (num != null)
@@ -38,19 +38,20 @@ public class ExpressionsEvaluatorWithStack {
                     num.setLength(0);
                 } else {
                     num.append(cur_ele);
-                    // flag = true;
+
                 }
             } else {
-                while (!stack.isStackEmpty() && priority(stack.peek()) >= priority(cur_ele)) {
-                    postfix.append(stack.pop());
-                    // flag = false;
+                while (!stack.isStackEmpty() && priority(stack.peek()) >= priority(cur_ele)) { // priority is greater or
+                                                                                               // equal to top operator
+                    postfix.append(stack.pop()); // then pop
+
                 }
-                stack.push(cur_ele);
+                stack.push(cur_ele); // push cur elem to stack
             }
 
         }
         while (!stack.isStackEmpty()) {
-            postfix.append(stack.pop());
+            postfix.append(stack.pop());// at end pop all operators from stack
         }
 
         return postfix.toString();
@@ -73,23 +74,23 @@ public class ExpressionsEvaluatorWithStack {
                     if (i == (infix.length() - 1))
                         num.append(cur_ele);
                     if (num != null)
-                    prefix.append(num);
+                        prefix.append(num);
                     num.setLength(0);
                 } else {
                     num.append(cur_ele);
-                    // flag = true;
                 }
             } else {
-                while (!stack.isStackEmpty() && priority(stack.peek()) > priority(cur_ele)) {
-                    prefix.append(stack.pop());
-                    // flag = false;
+                while (!stack.isStackEmpty() && priority(stack.peek()) > priority(cur_ele)) { // priority is greater
+                                                                                              // than top operator
+                    prefix.append(stack.pop());// then pop
+
                 }
-                stack.push(cur_ele);
+                stack.push(cur_ele);// push cur elem to stack
             }
 
         }
         while (!stack.isStackEmpty()) {
-            prefix.append(stack.pop());
+            prefix.append(stack.pop()); // at end pop all operators from stack
         }
 
         return prefix.reverse().toString();
@@ -103,7 +104,9 @@ public class ExpressionsEvaluatorWithStack {
             char cur_ele = postfix.charAt(i);
             if (isOperand(cur_ele)) {
                 StringBuilder num = new StringBuilder();
-
+                // traverse from left to right 
+                // push operand to stack
+                // if operator found pop two operands from stack and evaluate and push again
                 if (cur_ele == ' ') {
                     if (num != null)
 
@@ -115,7 +118,7 @@ public class ExpressionsEvaluatorWithStack {
 
             } else {
 
-                double op2 = stack.pop();
+                double op2 = stack.pop();// first popped is 2nd operand
                 double op1 = stack.pop();
                 result = calculate(op1, op2, cur_ele);
                 stack.push(result);
@@ -146,21 +149,23 @@ public class ExpressionsEvaluatorWithStack {
 
     public double evaluatePrefix(String prefix) {
         double result;
-            DynamicStack<Double> stack = new DynamicStack<>();
+        DynamicStack<Double> stack = new DynamicStack<>();
         for (int i = prefix.length() - 1; i >= 0; i--) {
             char cur_ele = prefix.charAt(i);
             if (isOperand(cur_ele)) {
+                // traverse from right to left
+                // push operand to stack
+                // if operator found pop two operands from stack and evaluate and push again
                 StringBuilder num = new StringBuilder();
                 if (cur_ele == ' ') {
                     if (num != null)
                         stack.push(Double.valueOf(num.toString()));
                     num.setLength(0);
                 } else {
-                    // num.append(cur_ele);
                     stack.push(Double.valueOf(cur_ele));
                 }
             } else {
-                double op1 = stack.pop();
+                double op1 = stack.pop(); // 1st popped is 1st operand
                 double op2 = stack.pop();
                 result = calculate(op1, op2, cur_ele);
 

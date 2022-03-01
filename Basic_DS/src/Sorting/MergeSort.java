@@ -26,29 +26,31 @@ public class MergeSort<T extends Comparable<T>> implements ISort<T> {
     }
 
     private void merge(T[] arr, int l, int m, int r) {
-
+        // logically divide arr into left and right from mth element
         int i = l;// index for arr1
         int j = m + 1;// index for arr2
         int k = l;// index for arr
-        List<T> temp = new ArrayList<>();
-        while (i <= m && j <= r) {
-            if (arr[i].compareTo(arr[j]) <= 0) {
-                temp.add(k, arr[i]);
+        List<T> temp = new ArrayList<>(); //temporory array
+        while (i <= m && j <= r) { //traverse both arrays and compare elements from both and 
+                                    //place smallest (for ascnd ordr) of both in
+                                     //new temporory array
+            if (arr[i].compareTo(arr[j]) <= 0) { //left arr has smaller or equal elem
+                temp.add(k, arr[i]); 
                 i++;
                 k++;
-            } else {
+            } else {                         //right arr has larger smaller elem
                 temp.add(k, arr[j]);
                 j++;
                 k++;
             }
         }
 
-        while (i <= m) {
+        while (i <= m) {       //when right array finished append left remaining arr as it is
             temp.add(k, arr[i]);
             i++;
             k++;
         }
-        while (j <= r) {
+        while (j <= r) { // else left array is finished hence append right arr as it is 
             temp.add(k, arr[j]);
             j++;
             k++;
